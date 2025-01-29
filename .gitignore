@@ -31,3 +31,9 @@ build/
 
 ### VS Code ###
 .vscode/
+
+### liquibase ###
+liquibase.properties
+
+### Libre Office Locks ###
+.~lock*
