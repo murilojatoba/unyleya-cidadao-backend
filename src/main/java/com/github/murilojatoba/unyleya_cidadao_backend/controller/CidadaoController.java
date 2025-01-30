@@ -1,10 +1,9 @@
 package com.github.murilojatoba.unyleya_cidadao_backend.controller;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -30,21 +29,26 @@ public class CidadaoController {
 	}
 	
 	@PostMapping
-	public Cidadao criarCidadao(@RequestBody Cidadao cidadao) throws Exception {
-		return cidadaoService.criarCidadao(cidadao);
+	public ResponseEntity<Cidadao> criarCidadao(@RequestBody Cidadao cidadao) throws Exception {
+		Cidadao cidadaoIncluido = cidadaoService.criarCidadao(cidadao);
+		
+		return ResponseEntity.ok()
+				.body(cidadaoIncluido);
 	}
 	
 	@PutMapping("/{id}")
-	public Cidadao alterarCidadao(@PathVariable("id") Long id, @RequestBody Cidadao cidadao) throws Exception {
-		return cidadaoService.alterarCidadao(id, cidadao);
+	public ResponseEntity<Cidadao> alterarCidadao(@PathVariable("id") Long id, @RequestBody Cidadao cidadao) throws Exception {
+		Cidadao cidadaoAlterado = cidadaoService.alterarCidadao(id, cidadao);
+		
+		return ResponseEntity.ok()
+				.body(cidadaoAlterado);
 	}
 	
 	@DeleteMapping("/{id}")
-	public Map<String, Boolean> removerCidadao(@PathVariable("id") Long id) throws Exception {
+	public ResponseEntity<Boolean> removerCidadao(@PathVariable("id") Long id) throws Exception {
 		cidadaoService.removerCidadao(id);
 		
-		Map<String, Boolean> response = new HashMap<>();
-		response.put("deleted", true);
-		return response;
+		return ResponseEntity.ok()
+				.body(true);
 	}
 }

@@ -19,7 +19,7 @@ public class CidadaoService {
 	}
 	
 	public Cidadao criarCidadao(Cidadao cidadao) throws Exception {
-		if (!cidadao.getId().equals(null)) {
+		if (cidadao.getId() != null) {
 			throw new Exception("Usuário informado já possui um id.");
 		}
 		
