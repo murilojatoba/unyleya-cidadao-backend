@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.github.murilojatoba</groupId>
 	<artifactId>unyleya-cidadao-backend</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0.0-SNAPSHOT</version>
 	<name>unyleya-cidadao-backend</name>
 	<description>Projeto de entrega da unidade 4, pós-graduação Unyleya</description>
 	<url/>
